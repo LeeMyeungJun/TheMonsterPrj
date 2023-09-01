@@ -16,7 +16,7 @@ public class BackendLogin : MonoBehaviour
         }
     }
 
-    public void CustonSighUp(string id, string pw)
+    public void CustonSignUp(string id, string pw)
     {
         // Step2. 회원가입 구현 로직
         Debug.Log("회원가입을 요청합니다.");
@@ -43,6 +43,10 @@ public class BackendLogin : MonoBehaviour
         if(bro.IsSuccess())
         {
             Debug.Log("로그인에 성공했습니다. : " + bro);
+
+            // 씬 전환 코드 넣기
+            //
+            //
         }
         else
         {

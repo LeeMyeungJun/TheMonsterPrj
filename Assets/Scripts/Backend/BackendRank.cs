@@ -28,7 +28,7 @@ public class BackendRank
         // [변경 필요] '복사한 UUID 값'을 '뒤끝 콘솔 > 랭킹 관리'에서 생성한 랭킹의 UUID값으로 변경해주세요.
         string rankUUID = "87315170-47d0-11ee-bb77-c32b2b5bf572";
 
-        string tableName = "USER_DATA";
+        string tableName = "USER_PR_DATA";
         string rowInDate = string.Empty;
 
         // 랭킹을 삽입하기 위해서는 게임 데이터에서 사용하는 데이터의 inDate값이 필요합니다.
