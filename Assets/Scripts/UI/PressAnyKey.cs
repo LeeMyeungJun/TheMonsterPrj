@@ -1,30 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;  // Silder class 사용하기 위해 추가합니다.
 
-using TMPro;
-using DG.Tweening;
-
-public class PressAnyKey : MonoBehaviour
+public class SliderOnOff : MonoBehaviour
 {
-    public List<Image> PadeInTarget;
+    Slider slHP;
+    //float fSliderBarTime;
+    void Start()
+    {
+        slHP = GetComponent<Slider>();
+    }
 
-    public Vector2 EndSize;
 
     void Update()
     {
-        if(Input.anyKeyDown)
-        {
-            Debug.Log("PRESS ANY KEY");
-            
-            foreach(Image img in PadeInTarget)
-            {
-                img.DOFade(1.0f, 0.5f);
-
-            }
-
-            this.gameObject.SetActive(false);
-        }
+        if (slHP.value <= 0 || slHP.value >= 1)
+            transform.Find("Fill Area").gameObject.SetActive(false);
+        else
+            transform.Find("Fill Area").gameObject.SetActive(true);
     }
 }
