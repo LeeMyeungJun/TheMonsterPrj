@@ -11,7 +11,7 @@ public class BlinkText : MonoBehaviour
     public TextMeshProUGUI text;
     void Start()
     {
-        text.DOFade(0.7f, 1).SetLoops(-1, loopType);
+        text.DOFade(0.3f, 1).SetLoops(-1, loopType);
     }
 
 }
