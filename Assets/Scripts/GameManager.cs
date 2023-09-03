@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager instance
+    private static GameManager instance;
+    public static GameManager Instance
     {
         get
         {
-            if (_instance == null)
+            if (instance == null)
             {
-                _instance = FindObjectOfType<GameManager>();
+                instance = FindObjectOfType<GameManager>();
             }
-            return _instance;
+            return instance;
         }
+    }
+
+    // ÀÔ·ÂÅ° (UI)
+    public bool isEsc;
+
+    private void Start()
+    {
+        isEsc = false;
+
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Input.GetKeyDown(KeyCode.Escape");
+            isEsc = !isEsc;
+            UIManager.Instance.EscPressed();
+            Debug.Log("GetKeyDown(KeyCode.Escape)");
         }
     }
 }
