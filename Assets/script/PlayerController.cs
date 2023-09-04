@@ -19,5 +19,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Grounded", false);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetBool("Roll", true);
+        }
     }
+
+
 }
