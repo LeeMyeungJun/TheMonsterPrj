@@ -22,11 +22,11 @@ public class BackendRank
         }
     }
 
-    // 랭킹 등록하기 
-    public void RankInsert(int score)
+    // 랭킹 등록하기 // Second 단위로 저장됨
+    public void RankInsert(int clearTime)
     {
         // [변경 필요] '복사한 UUID 값'을 '뒤끝 콘솔 > 랭킹 관리'에서 생성한 랭킹의 UUID값으로 변경해주세요.
-        string rankUUID = "87315170-47d0-11ee-bb77-c32b2b5bf572";
+        string rankUUID = "a6db3e90-4b05-11ee-9fad-ff306f915729";
 
         string tableName = "USER_PR_DATA";
         string rowInDate = string.Empty;
@@ -70,7 +70,7 @@ public class BackendRank
         Debug.Log("내 게임 정보의 rowInDate : " + rowInDate); // 추출된 rowIndate의 값은 다음과 같습니다.
 
         Param param = new Param();
-        param.Add("level", score);
+        param.Add("cleartime", clearTime);
 
         // 추출된 rowIndate를 가진 데이터에 param값으로 수정을 진행하고 랭킹에 데이터를 업데이트합니다.
         Debug.Log("랭킹 삽입을 시도합니다.");
@@ -88,7 +88,7 @@ public class BackendRank
     // 랭킹 불러오기
     public void RankGet()
     {
-        string rankUUID = "87315170-47d0-11ee-bb77-c32b2b5bf572";
+        string rankUUID = "a6db3e90-4b05-11ee-9fad-ff306f915729";
         var bro = Backend.URank.User.GetRankList(rankUUID);
 
         if (bro.IsSuccess() == false)
@@ -104,9 +104,14 @@ public class BackendRank
         {
             StringBuilder info = new StringBuilder();
 
+            /*info.AppendLine("순위 : " + jsonData["rank"].ToString());
+            info.AppendLine("닉네임 : " + jsonData["nickname"].ToString());
+            info.AppendLine("점수 : " + jsonData["clearTime"].ToString());
+            info.AppendLine("gamerInDate : " + jsonData["gamerInDate"].ToString());
+            info.AppendLine("정렬번호 : " + jsonData["index"].ToString());*/
             info.AppendLine("순위 : " + jsonData["rank"].ToString());
             info.AppendLine("닉네임 : " + jsonData["nickname"].ToString());
-            info.AppendLine("점수 : " + jsonData["score"].ToString());
+            info.AppendLine("점수 : " + jsonData["clearTime"].ToString());
             info.AppendLine("gamerInDate : " + jsonData["gamerInDate"].ToString());
             info.AppendLine("정렬번호 : " + jsonData["index"].ToString());
             info.AppendLine();

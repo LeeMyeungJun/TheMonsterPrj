@@ -16,12 +16,12 @@ public class BackendLogin : MonoBehaviour
         }
     }
 
-    public void CustonSignUp(string id, string pw)
+    public void CustomSignUp(string id, string pw, out BackendReturnObject bro)
     {
         // Step2. 회원가입 구현 로직
         Debug.Log("회원가입을 요청합니다.");
 
-        var bro = Backend.BMember.CustomSignUp(id, pw);
+        bro = Backend.BMember.CustomSignUp(id, pw);
 
         if(bro.IsSuccess())
         {
@@ -33,20 +33,16 @@ public class BackendLogin : MonoBehaviour
         }
     }
 
-    public void CustomLogin(string id, string pw)
+    public void CustomLogin(string id, string pw, out BackendReturnObject bro)
     {
         // Step3. 로그인 구현 로직
         Debug.Log("로그인을 요청합니다.");
 
-        var bro = Backend.BMember.CustomLogin(id, pw);
-
-        if(bro.IsSuccess())
+        bro = Backend.BMember.CustomLogin(id, pw);
+        
+        if (bro.IsSuccess())
         {
             Debug.Log("로그인에 성공했습니다. : " + bro);
-
-            // 씬 전환 코드 넣기
-            //
-            //
         }
         else
         {

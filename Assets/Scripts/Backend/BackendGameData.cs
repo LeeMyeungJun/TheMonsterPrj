@@ -17,8 +17,8 @@ public class UserData
     public List<string> equipment = new List<string>();*/
     #endregion
 
-    public string name = string.Empty;
-    public string recordTime = string.Empty;
+    public string nickName = string.Empty;
+    public int clearTime = 0;
 
     // 데이터를 디버깅하기 위한 함수입니다.(Debug.Log(UserData);)
     public override string ToString()
@@ -46,8 +46,8 @@ public class UserData
         #endregion
 
         StringBuilder result = new StringBuilder();
-        result.AppendLine($"name : {name}");
-        result.AppendLine($"recordTime : {recordTime}");
+        result.AppendLine($"nickname : {nickName}");
+        result.AppendLine($"recordTime : {clearTime}");
 
         return result.ToString();
     }
@@ -56,7 +56,6 @@ public class UserData
 public class BackendGameData : MonoBehaviour
 {
     private static BackendGameData _instance = null;
-
     public static BackendGameData Instance
     {
         get
@@ -74,19 +73,22 @@ public class BackendGameData : MonoBehaviour
     private string gameDataRowInDate = string.Empty;
 
     // 게임정보 삽입 
-    public void GameDataInsert()
+    public void GameDataInsert(int _clearTime)
     {
         if (userData == null)
             userData = new UserData();
 
         Debug.Log("데이터를 초기화합니다.2");
 
-        userData.name = "신입 용사2";
+        //userData.name = "신입 용사2";
+        userData.nickName = Backend.UserNickName;
+        userData.clearTime = _clearTime;
+
 
         Debug.Log("뒤끝 업데이트 목록에 해당 데이터들을 추가합니다.");
         Param param = new Param();
-        param.Add("name", userData.name);
-        param.Add("recordTime", userData.recordTime);
+        param.Add("NICK_NAME", userData.nickName);
+        param.Add("CLEAR_TIME", userData.clearTime);
 
 
         Debug.Log("게임정보 데이터 삽입을 요청합니다.");
@@ -113,7 +115,7 @@ public class BackendGameData : MonoBehaviour
         var bro = Backend.GameData.GetMyData("USER_PR_DATA", new Where());
         if (bro.IsSuccess())
         {
-            Debug.Log("게임 정보 조회에 성공했습니다. : " + bro);
+            Debug.Log("GetMyData ( USER_PR_DATA, ~ ) 에 성공했습니다. : " + bro);
 
 
             LitJson.JsonData gameDataJson = bro.FlattenRows(); // Json으로 리턴된 데이터를 받아옵니다.
@@ -128,10 +130,10 @@ public class BackendGameData : MonoBehaviour
                 gameDataRowInDate = gameDataJson[0]["inDate"].ToString(); //불러온 게임정보의 고유값입니다.
 
                 userData = new UserData();
-                userData.name = gameDataJson[0]["name"].ToString();
-                userData.recordTime = gameDataJson[0]["recordTime"].ToString();
+                userData.nickName = gameDataJson[0]["NICK_NAME"].ToString();
+                userData.clearTime = (int)gameDataJson[0]["CLEAR_TIME"];
 
-                Debug.Log(userData.ToString());
+                Debug.Log("userData : " + userData.ToString());
             }
         }
         else
@@ -141,13 +143,13 @@ public class BackendGameData : MonoBehaviour
     }
 
     // 게임정보 수정
-    public void LevelUp()
+    /*public void LevelUp()
     {
-        //
-    }
+        
+    }*/
 
     // 게임정보 수정
-    public void GameDataUpdate()
+    public void GameDataUpdate(int _clearTime)
     {
         if (userData == null)
         {
@@ -156,8 +158,8 @@ public class BackendGameData : MonoBehaviour
         }
 
         Param param = new Param();
-        param.Add("name", userData.name);
-        param.Add("name", userData.recordTime);
+        param.Add("NICK_NAME", userData.nickName);
+        param.Add("CLEAR_TIME", _clearTime);
 
         BackendReturnObject bro = null;
 

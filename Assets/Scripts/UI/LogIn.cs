@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using BackEnd;
 
 public class LogIn : MonoBehaviour
 {
     public TMP_InputField inputField_ID;
     public TMP_InputField inputField_PW;
+    private BackendReturnObject bro;
 
     void GetIDPW()
     {
@@ -19,6 +20,19 @@ public class LogIn : MonoBehaviour
     {
         GetIDPW();
 
-        BackendLogin.Instance.CustomLogin(BackendManager.UserID, BackendManager.UserPW);
+        BackendLogin.Instance.CustomLogin(BackendManager.UserID, BackendManager.UserPW, out bro);
+
+        if (bro.IsSuccess())
+        {
+            //
+            // 로그인 시 씬 전환
+            //
+        }
+        else
+        {
+            Debug.Log("로그인 실패.  재입력 바람");
+            inputField_ID.text = "";
+            inputField_PW.text = "";
+        }
     }
 }
