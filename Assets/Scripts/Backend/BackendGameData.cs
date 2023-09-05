@@ -127,12 +127,12 @@ public class BackendGameData : MonoBehaviour
             }
             else
             {
-                gameDataRowInDate = gameDataJson[0]["inDate"].ToString(); //불러온 게임정보의 고유값입니다.
+                gameDataRowInDate = gameDataJson[0]["inDate"].ToString(); //불러온 게임정보(회원)의 고유값입니다.
 
                 userData = new UserData();
                 userData.nickName = gameDataJson[0]["NICK_NAME"].ToString();
                 userData.clearTime = (int)gameDataJson[0]["CLEAR_TIME"];
-
+                Debug.Log("GameDataGet(), gameDataRowInDate : " + gameDataRowInDate);
                 Debug.Log("userData : " + userData.ToString());
             }
         }
@@ -141,7 +141,7 @@ public class BackendGameData : MonoBehaviour
             Debug.LogError("게임 정보 조회에 실패했습니다. : " + bro);
         }
     }
-
+    
     // 게임정보 수정
     /*public void LevelUp()
     {

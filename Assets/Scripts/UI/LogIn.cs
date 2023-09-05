@@ -30,6 +30,7 @@ public class LogIn : MonoBehaviour
         }
         else
         {
+            
             Debug.Log("로그인 실패.  재입력 바람");
             inputField_ID.text = "";
             inputField_PW.text = "";
