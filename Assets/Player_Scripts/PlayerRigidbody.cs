@@ -36,8 +36,8 @@ public class PlayerRigidbody : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 moveHorizontal = Vector3.right * h;
-        Vector3 moveVertical = Vector3.forward * v;
+        Vector3 moveHorizontal = Vector3.right * h*-1;
+        Vector3 moveVertical = Vector3.forward * v*-1;
         Vector3 velocity = (moveHorizontal + moveVertical).normalized;
 
         transform.LookAt(transform.position + velocity);

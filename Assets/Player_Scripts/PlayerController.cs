@@ -15,14 +15,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Grounded", false);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))    
         {
-            anim.SetBool("Roll", true);
+            anim.SetBool("RollEnd", false);
         }
+
     }
 
 
