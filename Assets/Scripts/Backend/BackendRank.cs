@@ -21,12 +21,13 @@ public class BackendRank
             return _instance;
         }
     }
+    string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
 
     // 랭킹 등록하기 // Second 단위로 저장됨
     public void RankInsert(int clearTime)
     {
         // [변경 필요] '복사한 UUID 값'을 '뒤끝 콘솔 > 랭킹 관리'에서 생성한 랭킹의 UUID값으로 변경해주세요.
-        string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
+        //string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
 
         string tableName = "USER_PR_DATA";
         string rowInDate = string.Empty;
@@ -89,7 +90,7 @@ public class BackendRank
     // 랭킹 불러오기
     public void RankGet(out BackendReturnObject bro)
     {
-        string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
+        //string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
         bro = Backend.URank.User.GetRankList(rankUUID);
 
         if (bro.IsSuccess() == false)
@@ -118,5 +119,30 @@ public class BackendRank
             info.AppendLine();
             Debug.Log(info);
         }*/
+    }
+
+    public void GetMyGapRank(int gap, out BackendReturnObject bro)
+    {
+        bro = Backend.URank.User.GetMyRank(rankUUID, gap);
+
+        if (bro.IsSuccess() == false)
+        {
+            Debug.LogError("My 랭킹 조회중 오류가 발생했습니다. : " + bro);
+            return;
+        }
+        Debug.Log("랭킹 조회에 성공했습니다. : " + bro);
+
+        //Debug.Log("총 랭킹 등록 유저 수 : " + bro.GetFlattenJSON()["totalCount"].ToString());
+    }
+
+    public void GetTopRanks(out BackendReturnObject bro)
+    {
+        bro = Backend.URank.User.GetRankList(rankUUID, 3);
+        if (bro.IsSuccess() == false)
+        {
+            Debug.LogError("My 랭킹 조회중 오류가 발생했습니다. : " + bro);
+            return;
+        }
+        Debug.Log("랭킹 조회에 성공했습니다. : " + bro);
     }
 }

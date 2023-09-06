@@ -12,7 +12,7 @@ public class UpdateClearTime : MonoBehaviour
 
     private void Awake()
     {
-        //UpdateData();
+        UpdateData();
     }
     // 데이터 삽입 함수
     public void UpdateData()
