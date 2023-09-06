@@ -23,7 +23,7 @@ public class BackendManager : MonoBehaviour
         {
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생 
         }
-
+        
         Test();
     }
 
@@ -33,7 +33,7 @@ public class BackendManager : MonoBehaviour
         {
             // BackendLogin -------------------------------------------------------------------------
             // 뒤끝 로그인 _ BackendLogin.cs
-            BackendLogin.Instance.CustomLogin(UserID, UserPW);
+            //ackendLogin.Instance.CustomLogin(UserID, UserPW);
 
             // 닉네임 변경 _ BackendLogin.cs
             //BackendLogin.Instance.UpdateNickname("최승우");
@@ -62,10 +62,10 @@ public class BackendManager : MonoBehaviour
             //BackendRank.Instance.RankInsert(100);
 
             // 랭킹 불러오기
-            BackendRank.Instance.RankGet();  
+            //BackendRank.Instance.RankGet();  
 
 
-            Debug.Log("테스트를 종료합니다.");
+            //Debug.Log("테스트를 종료합니다.");
         });
     }
 

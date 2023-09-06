@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class PressAnyKey : MonoBehaviour
 {
-    public CanvasGroup PadeInTarget;
+    public CanvasGroup FadeInTarget;
 
     public Vector2 EndSize;
 
@@ -18,7 +18,8 @@ public class PressAnyKey : MonoBehaviour
         {
             Debug.Log("PRESS ANY KEY");
 
-            PadeInTarget.DOFade(1.0f, 0.5f);
+            FadeInTarget.DOFade(1.0f, 0.5f);
+            FadeInTarget.blocksRaycasts = true;
 
             this.gameObject.SetActive(false);
         }

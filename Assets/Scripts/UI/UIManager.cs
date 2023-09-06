@@ -21,8 +21,7 @@ public class UIManager : MonoBehaviour
 
     public void EscPressed()
     {
-
-        if (GameManager.Instance.isEsc)
+        if (GameManager.Instance.isEscPressed)
             CallMenu();
         else
             CloseMenu();
@@ -30,14 +29,14 @@ public class UIManager : MonoBehaviour
 
     private void CallMenu()
     {
-        GameManager.Instance.isEsc = true;
+        GameManager.Instance.isEscPressed = true;
         escMenu.SetActive(true);
         Time.timeScale = 0f; // 시간의 흐름 설정. 0배속. 즉 시간을 멈춤.
     }
 
     private void CloseMenu()
     {
-        GameManager.Instance.isEsc = false;
+        GameManager.Instance.isEscPressed = false;
         escMenu.SetActive(false);
         Time.timeScale = 1f; // 1배속 (정상 속도)
     }

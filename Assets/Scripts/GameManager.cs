@@ -18,19 +18,18 @@ public class GameManager : MonoBehaviour
     }
 
     // ют╥бе╟ (UI)
-    public bool isEsc;
+    public bool isEscPressed;
 
     private void Start()
     {
-        isEsc = false;
-
+        isEscPressed = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isEsc = !isEsc;
+            isEscPressed = !isEscPressed;
             UIManager.Instance.EscPressed();
             Debug.Log("GetKeyDown(KeyCode.Escape)");
         }

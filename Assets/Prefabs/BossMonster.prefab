@@ -1691,17 +1691,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkAnimDatas:
-  - triggerName: 1p_attack1
-    animStateName: isAttack1
-  - triggerName: 1p_attack2
-    animStateName: isAttack2
-  - triggerName: 1p_attack3
-    animStateName: isAttack3
+  - triggerName: isAttack1
+    animStateName: 1p_attack1
+  - triggerName: isAttack2
+    animStateName: 1p_attack2
+  - triggerName: isAttack3
+    animStateName: 1p_attack3
   rangeAnimDatas:
-  - triggerName: 1p_range1
-    animStateName: isRange1
+  - triggerName: isRange1
+    animStateName: 1p_range1
   _detectRange: 25
-  _meleeAttackRange: 8
+  _meleeAttackRange: 10
   _rangeAttackRange: 17.71
   _movementSpeed: 10
   detectAnimDatas: []
