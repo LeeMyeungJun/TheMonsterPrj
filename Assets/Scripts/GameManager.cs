@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    private static GameManager instance;
+    /*private static GameManager instance;
     public static GameManager Instance
     {
         get
@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
             }
             return instance;
         }
-    }
-
+    }*/
+    
     // ют╥бе╟ (UI)
     public bool isEscPressed;
 

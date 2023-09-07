@@ -24,7 +24,6 @@ public class BtnSignUpRequest : MonoBehaviour
     {
         GetIDPW();
         BackendLogin.Instance.CustomSignUp(BackendManager.UserID, BackendManager.UserPW, out bro);
-        
 
         if (bro.IsSuccess())
         {

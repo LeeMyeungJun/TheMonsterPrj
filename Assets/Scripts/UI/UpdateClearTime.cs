@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UpdateClearTime : MonoBehaviour
 {
-    public Text txtTimer;
+    public TMP_Text txtTimer;
     string[] t;
     int clearTime;
 

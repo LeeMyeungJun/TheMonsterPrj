@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using BackEnd;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,7 +19,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject escMenu; // esc UI 패널
+    public GameObject escMenu; // esc UI 패널
+    public TMP_Text[] txtNickName; // nickname texts
+    public TMP_Text txtTimer; // time text
 
     public void EscPressed()
     {
@@ -41,8 +45,9 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f; // 1배속 (정상 속도)
     }
 
-    private void Update()
+    public void SetNickNameTxts()
     {
-
+        foreach (TMP_Text txt in txtNickName)
+            txt.text = Backend.UserNickName;
     }
 }

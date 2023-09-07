@@ -54,7 +54,7 @@ public class BackendLogin : MonoBehaviour
     {
         // Step4. 닉네임 변경 구현 로직
         Debug.Log("닉네임 변경을 요청합니다.");
-
+        
         var bro = Backend.BMember.UpdateNickname(nickname);
         //Backend.BMember.GetUserInfo().
         if (bro.IsSuccess())

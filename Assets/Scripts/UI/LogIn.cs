@@ -24,9 +24,11 @@ public class LogIn : MonoBehaviour
 
         if (bro.IsSuccess())
         {
+
             //
             // 로그인 시 씬 전환
             //
+            UIManager.Instance.SetNickNameTxts();
         }
         else
         {
