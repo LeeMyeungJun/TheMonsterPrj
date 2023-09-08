@@ -5,7 +5,7 @@ using System.Reflection;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    protected static T obj;
+    protected static T instance;
     protected string Id;
     protected bool isDestroy;
     static protected bool isQuit = false;
@@ -19,16 +19,16 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         get
         {
-            if (!obj)
+            if (!instance)
             {
                 if (isQuit) //게임 죽는중..
                     return null;
 
                 // 일단 씬에 객체가 있다라고 가정하고 처음에 찾는다~     
                 // 없다면 게임오브젝트 생성하고 T를 Add해서 싱글톤 객체를 만든다.
-                obj = (T)FindObjectOfType(typeof(T));
+                instance = (T)FindObjectOfType(typeof(T));
 
-                if (!obj)
+                if (!instance)
                 {
                     //if( ResourceDB.IsApplicationQuit == true )
                     //{
@@ -36,14 +36,14 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
                     //	return null;
                     //}
 
-                    obj = new GameObject(typeof(T).Name).AddComponent<T>();
-                    obj.Init();
+                    instance = new GameObject(typeof(T).Name).AddComponent<T>();
+                    instance.Init();
                 }
                 else
-                    obj.Init();
+                    instance.Init();
             }
 
-            return obj;
+            return instance;
         }
 
         protected set { }
@@ -51,13 +51,13 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 
     protected virtual void Awake()
     {
-        if (obj != null)
+        if (instance != null)
         {
-            Debug.LogError("obj != null " + this.gameObject.name);
+            Debug.LogError("instance != null " + this.gameObject.name);
             return;
         }
 
-        obj = this as T;
+        instance = this as T;
         Instance.gameObject.name = typeof(T).Name;
         DontDestroyOnLoad(Instance);
         Debug.Log("Singleton : " + Instance.gameObject.name);
@@ -65,22 +65,22 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 
     public static void DestroySingleton()
     {
-        if (obj == null)
-            obj = (T)FindObjectOfType(typeof(T));
+        if (instance == null)
+            instance = (T)FindObjectOfType(typeof(T));
 
-        if (obj != null)
-            GameObject.DestroyImmediate(obj.gameObject);
-        obj = null;
+        if (instance != null)
+            GameObject.DestroyImmediate(instance.gameObject);
+        instance = null;
     }
 
     public static bool isDestroyed()
     {
-        return (obj == null);
+        return (instance == null);
     }
 
     void OnApplicationQuit()
     {
-        obj = null;
+        instance = null;
         Instance = null;
         isQuit = true;
     }

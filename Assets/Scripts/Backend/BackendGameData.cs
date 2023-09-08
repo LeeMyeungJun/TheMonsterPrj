@@ -53,9 +53,9 @@ public class UserData
     }
 }
 
-public class BackendGameData : MonoBehaviour
+public class BackendGameData : MonoSingleton<BackendGameData>
 {
-    private static BackendGameData _instance = null;
+    /*private static BackendGameData _instance = null;
     public static BackendGameData Instance
     {
         get
@@ -66,7 +66,7 @@ public class BackendGameData : MonoBehaviour
             }   
             return _instance;
         }
-    }
+    }*/
 
     public static UserData userData;
 

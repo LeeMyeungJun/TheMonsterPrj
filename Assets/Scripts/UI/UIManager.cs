@@ -4,24 +4,43 @@ using UnityEngine;
 using TMPro;
 using BackEnd;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingleton<UIManager>
 {
-    private static UIManager instance;
-    public static UIManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<UIManager>();
-            }
-            return instance;
-        }
-    }
-
     public GameObject escMenu; // esc UI 패널
     public TMP_Text[] txtNickName; // nickname texts
     public TMP_Text txtTimer; // time text
+    float time;
+    bool isTimerOn;
+
+    private void Update()
+    {
+        if (isTimerOn)
+        {
+            TimerOn();
+        }
+
+    }
+
+    public void TimerStart()
+    {
+        print("TimerStart");
+
+        time = 0;
+        isTimerOn = true;
+    }
+    private void TimerOn()
+    {
+        time += Time.deltaTime;
+        
+        txtTimer.text = string.Format("{0:00}:{1:00}", ((int)time / 60), ((int)time % 60));
+    }
+    public void TimerStop()
+    {
+        print("TimerStop");
+
+        isTimerOn = false;
+    }
+
 
     public void EscPressed()
     {
@@ -35,14 +54,14 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.isEscPressed = true;
         escMenu.SetActive(true);
-        Time.timeScale = 0f; // 시간의 흐름 설정. 0배속. 즉 시간을 멈춤.
+        Time.timeScale = 0f;
     }
 
     private void CloseMenu()
     {
         GameManager.Instance.isEscPressed = false;
         escMenu.SetActive(false);
-        Time.timeScale = 1f; // 1배속 (정상 속도)
+        Time.timeScale = 1f;
     }
 
     public void SetNickNameTxts()
@@ -50,4 +69,6 @@ public class UIManager : MonoBehaviour
         foreach (TMP_Text txt in txtNickName)
             txt.text = Backend.UserNickName;
     }
+
+    
 }

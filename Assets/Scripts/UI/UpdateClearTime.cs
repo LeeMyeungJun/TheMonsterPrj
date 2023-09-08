@@ -10,13 +10,15 @@ public class UpdateClearTime : MonoBehaviour
     string[] t;
     int clearTime;
 
-    private void Awake()
+    private void OnEnable()
     {
         UpdateData();
     }
     // 데이터 삽입 함수
     public void UpdateData()
     {
+        UIManager.Instance.TimerStop();
+
         t = txtTimer.text.Split(":");
         clearTime = Convert.ToInt32(t[0]) * 60 + Convert.ToInt32(t[1]);
 

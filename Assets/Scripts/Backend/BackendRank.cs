@@ -5,9 +5,9 @@ using UnityEngine;
 // 뒤끝 SDK namespace 추가
 using BackEnd;
 
-public class BackendRank
+public class BackendRank : MonoSingleton<BackendRank>
 {
-    private static BackendRank _instance = null;
+    /*private static BackendRank _instance = null;
 
     public static BackendRank Instance
     {
@@ -20,7 +20,7 @@ public class BackendRank
 
             return _instance;
         }
-    }
+    }*/
     string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
 
     // 랭킹 등록하기 // Second 단위로 저장됨

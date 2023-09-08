@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 /// <summary> 헤더 드래그 앤 드롭에 의한 UI 이동 </summary>
 public class Movable : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
-    [SerializeField]
     private Transform _targetTr; // 이동될 UI
 
     private Vector2 _startingPoint;

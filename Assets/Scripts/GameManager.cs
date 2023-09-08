@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    /*private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
-    }*/
-    
     // ÀÔ·ÂÅ° (UI)
     public bool isEscPressed;
 
@@ -26,6 +13,11 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     private void Update()
+    {
+        KeyCtrl();
+    }
+
+    private void KeyCtrl()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

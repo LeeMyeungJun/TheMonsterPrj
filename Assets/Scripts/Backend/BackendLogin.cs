@@ -2,9 +2,9 @@ using UnityEngine;
 
 using BackEnd;
 
-public class BackendLogin : MonoBehaviour
+public class BackendLogin : MonoSingleton<BackendLogin>
 {
-    private static BackendLogin _instance = null;
+    /*private static BackendLogin _instance = null;
 
     public static BackendLogin Instance
     {
@@ -14,7 +14,7 @@ public class BackendLogin : MonoBehaviour
                 _instance = new BackendLogin();
             return _instance;
         }
-    }
+    }*/
     
     public void CustomSignUp(string id, string pw, out BackendReturnObject bro)
     {
