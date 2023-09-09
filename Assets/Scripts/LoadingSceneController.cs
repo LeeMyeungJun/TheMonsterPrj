@@ -8,13 +8,16 @@ public class LoadingSceneController : MonoBehaviour
 {
     public static string nextScene;
     [SerializeField] Image progressBar;
-
+    
     private void Start()
     {
         StartCoroutine(LoadScene());
     }
 
-    // LoadingSceneController.LoadScene("..."); 호출 시 LoadingScene으로 씬전환. 그러면 LoadingSceneController가 Start()되면서 LoadScene 코루틴 생성
+    /// <summary>
+    /// 호출 시 LoadingScene으로 씬전환. LoadingSceneController가 Start()되면서 LoadScene 코루틴 생성
+    /// </summary>
+    /// <param name="sceneName">전환 대상 씬</param>
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;

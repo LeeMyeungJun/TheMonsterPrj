@@ -26,10 +26,10 @@ public class BtnLogIn : MonoBehaviour
 
         if (bro.IsSuccess())
         {
-            UIManager.Instance.SetNickNameTxts();
+            //UIManager.Instance.SetNickNameTxts();
 
             // 로그인 시 씬 전환
-            LoadingSceneController.LoadScene("NextScene");
+            LoadingSceneController.LoadScene("IngameUIScene");
         }
         else
         {

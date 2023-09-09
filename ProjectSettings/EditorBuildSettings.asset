@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CSW_Scene.unity
     guid: 62059595f40d6e74cb8c9167fb0192ed
   - enabled: 1
-    path: Assets/Scenes/NextScene.unity
-    guid: 9d78ddf8f18828045a862004970009ff
-  - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: e2ca296c9f799fa4eb6649c65148720f
+  - enabled: 1
+    path: Assets/Scenes/IngameUIScene.unity
+    guid: 9d78ddf8f18828045a862004970009ff
   m_configObjects: {}
