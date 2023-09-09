@@ -21,6 +21,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     }
 
+    #region Timer
     public void TimerStart()
     {
         print("TimerStart");
@@ -40,8 +41,9 @@ public class UIManager : MonoSingleton<UIManager>
 
         isTimerOn = false;
     }
+    #endregion
 
-
+    #region EscMenu
     public void EscPressed()
     {
         if (GameManager.Instance.isEscPressed)
@@ -63,6 +65,7 @@ public class UIManager : MonoSingleton<UIManager>
         escMenu.SetActive(false);
         Time.timeScale = 1f;
     }
+    #endregion
 
     public void SetNickNameTxts()
     {

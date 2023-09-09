@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class EscMenu : MonoBehaviour
 {
-    private GameObject escMenu; // 일시 정지 UI 패널
-
-    private void Start()
-    {
-        escMenu = this.gameObject;
-    }
-
     public void ClickResume()
     {
         Debug.Log("게임 재개");
