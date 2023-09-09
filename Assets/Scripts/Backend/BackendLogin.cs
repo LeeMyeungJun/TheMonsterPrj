@@ -3,19 +3,7 @@ using UnityEngine;
 using BackEnd;
 
 public class BackendLogin : MonoSingleton<BackendLogin>
-{
-    /*private static BackendLogin _instance = null;
-
-    public static BackendLogin Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = new BackendLogin();
-            return _instance;
-        }
-    }*/
-    
+{ 
     public void CustomSignUp(string id, string pw, out BackendReturnObject bro)
     {
         // Step2. 회원가입 구현 로직

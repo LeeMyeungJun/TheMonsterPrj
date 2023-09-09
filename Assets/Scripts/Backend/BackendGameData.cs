@@ -53,21 +53,10 @@ public class UserData
     }
 }
 
+// 의문. 그냥 싱글톤으로만 만드는게 맞나?
+
 public class BackendGameData : MonoSingleton<BackendGameData>
 {
-    /*private static BackendGameData _instance = null;
-    public static BackendGameData Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new BackendGameData();
-            }   
-            return _instance;
-        }
-    }*/
-
     public static UserData userData;
 
     private string gameDataRowInDate = string.Empty;

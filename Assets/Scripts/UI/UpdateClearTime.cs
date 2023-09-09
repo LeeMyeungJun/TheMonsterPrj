@@ -7,11 +7,13 @@ using TMPro;
 public class UpdateClearTime : MonoBehaviour
 {
     public TMP_Text txtTimer;
+    public TMP_Text txtClearTime;
     string[] t;
     int clearTime;
 
     private void OnEnable()
     {
+        txtClearTime.text = "Clear : " + txtTimer.text;
         UpdateData();
     }
     // 데이터 삽입 함수

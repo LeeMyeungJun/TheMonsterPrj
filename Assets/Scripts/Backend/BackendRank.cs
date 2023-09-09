@@ -4,6 +4,7 @@ using UnityEngine;
 
 // 뒤끝 SDK namespace 추가
 using BackEnd;
+using LitJson;
 
 public class BackendRank : MonoSingleton<BackendRank>
 {
@@ -26,6 +27,16 @@ public class BackendRank : MonoSingleton<BackendRank>
     // 랭킹 등록하기 // Second 단위로 저장됨
     public void RankInsert(int clearTime)
     {
+        BackendReturnObject mybro = Backend.URank.User.GetMyRank(rankUUID);
+        if (mybro.IsSuccess())
+        {
+            JsonData rankListJson = mybro.GetFlattenJSON();
+            Debug.Log((int)rankListJson["rows"][0]["score"]);
+            if ((int)rankListJson["rows"][0]["score"] < clearTime)
+                return;
+
+        }
+
         // [변경 필요] '복사한 UUID 값'을 '뒤끝 콘솔 > 랭킹 관리'에서 생성한 랭킹의 UUID값으로 변경해주세요.
         //string rankUUID = "6ceb10b0-4b9c-11ee-9fad-ff306f915729";
 

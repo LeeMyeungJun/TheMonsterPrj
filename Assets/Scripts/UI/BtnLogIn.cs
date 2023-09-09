@@ -26,15 +26,13 @@ public class BtnLogIn : MonoBehaviour
 
         if (bro.IsSuccess())
         {
-            //UIManager.Instance.SetNickNameTxts();
-
             // 로그인 시 씬 전환
+            Debug.Log("씬 전환");
             LoadingSceneController.LoadScene("IngameUIScene");
         }
         else
         {
-
-            Debug.Log("로그인 실패.  재입력 바람");
+            Debug.Log("재입력 바람");
             inputField_ID.text = "";
             inputField_PW.text = "";
         }
