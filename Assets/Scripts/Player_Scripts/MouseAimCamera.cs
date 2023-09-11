@@ -6,7 +6,8 @@ public class MouseAimCamera : MonoBehaviour {
 	public float rotateSpeed = 5;
 	Vector3 offset;
 	
-	void Start() {
+	void Start() 
+	{
 		offset = target.transform.position - transform.position;
 	}
 	
@@ -18,6 +19,7 @@ public class MouseAimCamera : MonoBehaviour {
 		Quaternion rotation = Quaternion.Euler(-10, desiredAngle, 45);
 		transform.position = target.transform.position - (rotation * offset);
 		
+
 		transform.LookAt(target.transform);
 	}
 }
