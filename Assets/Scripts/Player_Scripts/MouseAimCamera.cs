@@ -16,9 +16,8 @@ public class MouseAimCamera : MonoBehaviour {
 		target.transform.Rotate(0, horizontal, 0);
 
 		float desiredAngle = target.transform.eulerAngles.y;
-		Quaternion rotation = Quaternion.Euler(-10, desiredAngle, 45);
+		Quaternion rotation = Quaternion.Euler(0, desiredAngle,0);
 		transform.position = target.transform.position - (rotation * offset);
-		
 
 		transform.LookAt(target.transform);
 	}

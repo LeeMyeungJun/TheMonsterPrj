@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform characterBody;
     [SerializeField]
-    private Transform cameraArm;
+    private Transform cameraArm; //카메라 이동관리
 
     Animator m_animator;
     private Rigidbody m_rigidBody;
@@ -137,6 +137,18 @@ public class PlayerController : MonoBehaviour
         else
         {
             m_animator.SetBool("isAttack", false);
+        }
+    }
+
+    private void Running()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            m_animator.SetBool("isRun", true);
+        }
+        else
+        {
+            m_animator.SetBool("isRun", false);
         }
     }
 
