@@ -2,32 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using BackEnd;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingle<UIManager>
 {
-    private static UIManager _instance;
-    public static UIManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<UIManager>();
-
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("UIManager");
-                    _instance = obj.AddComponent<UIManager>();
-                }
-            }
-            return _instance;
-        }
-    }
-
     public GameObject escMenu; // esc UI ÆÐ³Î
     public TMP_Text[] txtNickName; // nickname texts
     public TMP_Text txtTimer; // time text
+
+
     float time;
     bool isTimerOn;
 

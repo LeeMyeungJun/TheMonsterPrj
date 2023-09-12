@@ -14,6 +14,9 @@ public class EscMenu : MonoBehaviour
 
     public void ClickRestart()
     {
+        //
+        // 재시작 코드
+        //
         Debug.Log("재시작");
     }
 

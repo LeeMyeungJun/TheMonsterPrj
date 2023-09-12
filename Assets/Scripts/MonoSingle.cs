@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class MonoSingle<T> : MonoBehaviour where T : MonoSingle<T>
 {
-    static  T Instance;
+    static public T Instance;
 
     virtual protected void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("Inst != null " + gameObject.name);
+            Debug.LogError("Instance != null " + gameObject.name);
             return;
         }
         Instance = (T)this;
