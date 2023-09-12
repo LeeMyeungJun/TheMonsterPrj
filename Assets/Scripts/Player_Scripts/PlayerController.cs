@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private float m_jumpTimeStamp = 0;
     private float m_minJumpInterval = 0.25f;
 
-    
+    private float rotationSpeed = 3.0f;
     //private bool RollEnd = true;
     // Start is called before the first frame update
     void Start()
@@ -67,9 +67,8 @@ public class PlayerController : MonoBehaviour
 
 
             /* LMJ 수정코드 .. */
-            //여기회전
-            _targetRotation = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg +
-                                Camera.main.transform.eulerAngles.y;
+            //여기회전+ Camera.main.transform.eulerAngles.y
+            _targetRotation = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                 RotationSmoothTime);
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
             //전진
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-            transform.position += targetDirection * (Time.deltaTime * 3f);
+            transform.position += targetDirection * (Time.deltaTime * rotationSpeed);
             m_isGrounded = true;
 
 
@@ -140,17 +139,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Running()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            m_animator.SetBool("isRun", true);
-        }
-        else
-        {
-            m_animator.SetBool("isRun", false);
-        }
-    }
 
     private void LookAround()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MouseAimCamera : MonoBehaviour {
 	public GameObject target;
-	public float rotateSpeed = 5;
+	public float rotateSpeed = 1;
 	Vector3 offset;
 	
 	void Start() 
