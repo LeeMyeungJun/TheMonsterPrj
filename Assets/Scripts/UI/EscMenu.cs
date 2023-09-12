@@ -6,6 +6,9 @@ public class EscMenu : MonoBehaviour
 {
     public void ClickResume()
     {
+        GameManager.Instance.isEscMenuOn = !GameManager.Instance.isEscMenuOn;
+        UIManager.Instance.EscPressed();
+        Debug.Log("GetKeyDown(KeyCode.Escape)");
         Debug.Log("게임 재개");
     }
 

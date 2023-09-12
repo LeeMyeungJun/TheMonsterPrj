@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     // ют╥бе╟ (UI)
-    public bool isEscPressed;
+    public bool isEscMenuOn;
 
     private void Start()
     {
-        isEscPressed = false;
+        isEscMenuOn = false;
     }
 
     private void Update()
@@ -21,7 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isEscPressed = !isEscPressed;
+            isEscMenuOn = !isEscMenuOn;
             UIManager.Instance.EscPressed();
             Debug.Log("GetKeyDown(KeyCode.Escape)");
         }
