@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
     #region EscMenu
     public void EscPressed()
     {
-        if (GameManager.Instance.isEscPressed)
+        if (GameManager.Instance.isEscMenuOn)
             CallMenu();
         else
             CloseMenu();
@@ -83,14 +83,12 @@ public class UIManager : MonoBehaviour
 
     private void CallMenu()
     {
-        GameManager.Instance.isEscPressed = true;
         escMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
     private void CloseMenu()
     {
-        GameManager.Instance.isEscPressed = false;
         escMenu.SetActive(false);
         Time.timeScale = 1f;
     }
