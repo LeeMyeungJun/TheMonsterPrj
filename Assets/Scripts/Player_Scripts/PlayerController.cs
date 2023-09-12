@@ -101,17 +101,17 @@ public class PlayerController : MonoBehaviour
             //m_animator.SetBool("Grounded", false);
         }
 
-        if (!m_wasGrounded && m_isGrounded)
-        {
-            //m_animator.SetBool("Grounded", true);
-            m_animator.SetTrigger("Land");
-        }
+        //if (!m_wasGrounded && m_isGrounded)
+        //{
+        //    //m_animator.SetBool("Grounded", true);
+        //    m_animator.SetTrigger("Land");
+        //}
 
-        if (!m_isGrounded && m_wasGrounded)
-        {
-            //m_animator.SetBool("Grounded", true);
-            m_animator.SetTrigger("Jump");
-        }
+        //if (!m_isGrounded && m_wasGrounded)
+        //{
+        //    //m_animator.SetBool("Grounded", true);
+        //    m_animator.SetTrigger("Jump");
+        //}
 
     }
 
