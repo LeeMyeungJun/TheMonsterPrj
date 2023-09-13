@@ -216,10 +216,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 639445001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6042221a7f4d4f54cb328d288aab25fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 18ee32f07d4e8664981aefec12bbd0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 0}
+  enemyBody: {fileID: 639445006}
 --- !u!65 &797092796 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8134481365463279421, guid: fe537232bf769c04790459344f7482e5, type: 3}

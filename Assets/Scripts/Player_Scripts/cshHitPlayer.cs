@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 
-public class cshHitMonster : LivingEntity
+public class cshHitPlayer : LivingEntity
 {
-    public Collider weaponCollider;
-    private cshHitPlayer hitPlayer;
+    public Collider enemyBody;
+    private cshHitMonster hitMonster;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Ãæµ¹");
         if (other.gameObject.tag == "Monster")
         {
-            Debug.Log("°ø°Ý");
-            hitPlayer = other.GetComponent<cshHitPlayer>();
-            hitPlayer.OnTakeDamage(10f);
+            Debug.Log("¸ó½ºÅÍ");
+            hitMonster = other.GetComponent<cshHitMonster>();
+            hitMonster.OnTakeDamage(10f);
         }
     }
     private void OnEnable()
@@ -34,14 +33,13 @@ public class cshHitMonster : LivingEntity
 
     private void OnCollider()
     {
-      Debug.Log("ÄÑÁü");
-      weaponCollider.enabled = true;
+        Debug.Log("ÄÑÁü");
+        enemyBody.enabled = true;
     }
 
     private void OffCollider()
     {
         Debug.Log("²¨Áü");
-        weaponCollider.enabled = false;
+        enemyBody.enabled = false;
     }
-
 }
