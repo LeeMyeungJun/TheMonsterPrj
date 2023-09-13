@@ -28,7 +28,7 @@ public class BtnLogIn : MonoBehaviour
         {
             // 로그인 시 씬 전환
             Debug.Log("씬 전환");
-            LoadingSceneController.LoadScene("IngameUIScene");
+            LoadingSceneController.LoadScene("GameScene");
         }
         else
         {

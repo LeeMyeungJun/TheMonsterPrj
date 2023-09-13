@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
     private void OnEnable()
     {
-        UIManager.Instance.TimerStart();
+        try
+        {
+            UIManager.Instance.TimerStart();
+        }
+        catch (Exception e)
+        {
+        }
+        
     }
     private void OnDisable()
     {
-        UIManager.Instance.TimerStop();
+        try
+        {
+            UIManager.Instance.TimerStop();
+        }
+        catch (Exception e) 
+        {
+        }
     }
 }

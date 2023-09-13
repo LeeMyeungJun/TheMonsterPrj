@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : BehaviourAI
 {
     protected Transform _detectedPlayer = null;
+    Vector3 originPos = Vector3.zero;
 
     protected override void Awake()
     {
@@ -13,6 +14,10 @@ public class Enemy : BehaviourAI
         _detectedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    private void Start()
+    {
+        originPos = transform.position;
+    }
     protected virtual INode SettingBT()
     {
         return new SelectorNode
@@ -113,8 +118,6 @@ public class Enemy : BehaviourAI
     #region  Detect & Move Node
     INode.ENodeState CheckDetectEnemy()
     {
-        if (_detectedPlayer != null)
-            return INode.ENodeState.Success;
         var overlapColliders = Physics.OverlapSphere(transform.position, _detectRange, LayerMask.GetMask("Player"));
 
         if (overlapColliders != null && overlapColliders.Length > 0)
@@ -124,7 +127,7 @@ public class Enemy : BehaviourAI
             return INode.ENodeState.Success;
         }
 
-        _detectedPlayer = null;
+        //_detectedPlayer = null;
 
         return INode.ENodeState.Failure;
     }
@@ -157,7 +160,7 @@ public class Enemy : BehaviourAI
         }
         else
         {
-            agent.destination = _detectedPlayer.position;
+            agent.destination = originPos;
             return INode.ENodeState.Running;
         }
     }

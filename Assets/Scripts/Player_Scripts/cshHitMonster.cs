@@ -34,13 +34,11 @@ public class cshHitMonster : LivingEntity
 
     private void OnCollider()
     {
-      Debug.Log("ÄÑÁü");
       weaponCollider.enabled = true;
     }
 
     private void OffCollider()
     {
-        Debug.Log("²¨Áü");
         weaponCollider.enabled = false;
     }
 
