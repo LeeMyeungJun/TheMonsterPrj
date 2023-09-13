@@ -4,9 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using BackEnd;
+using System;
 
 public class UIManager : MonoSingle<UIManager>
 {
+    public TMP_Text txtBossCnt;
+    public TMP_Text txtSubCnt;
     public GameObject escMenu; // esc UI ÆÐ³Î
     public TMP_Text[] txtNickName; // nickname texts
     public TMP_Text txtTimer; // time text
@@ -27,6 +30,17 @@ public class UIManager : MonoSingle<UIManager>
     {
         SetNickNameTxts();
     }
+
+    public void BossMobCnt()
+    {
+        txtBossCnt.text = ""+GameManager.Instance.bossMobCnt + " / " + 1;
+    }
+
+    public void SubMobCnt()
+    {
+        txtSubCnt.text = "" + GameManager.Instance.subMobCnt + " / " + GameManager.Instance.subMobMax;
+    }
+
     public void SetNickNameTxts()
     {
         foreach (TMP_Text txt in txtNickName)
