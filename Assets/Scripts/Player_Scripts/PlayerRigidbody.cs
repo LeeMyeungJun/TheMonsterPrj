@@ -51,6 +51,7 @@ public class PlayerRigidbody : MonoBehaviour
 
         m_animator.SetFloat("MoveSpeed", velocity.magnitude);
     }
+
     private void JumpingAndLanding()
     {
         bool jumpCooldownOver = (Time.time - m_jumpTimeStamp) >= m_minJumpInterval;

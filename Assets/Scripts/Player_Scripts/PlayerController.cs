@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMove = moveInput.magnitude != 0;
         m_animator.SetBool("isMove", isMove);
-
+        
         if (isMove)
         {
             //Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
@@ -76,9 +76,15 @@ public class PlayerController : MonoBehaviour
 
             //ÀüÁø
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-            transform.position += targetDirection * (Time.deltaTime * rotationSpeed);
+            Vector3 vel = targetDirection * (Time.deltaTime * rotationSpeed);
+            transform.position += vel;
             m_isGrounded = true;
 
+            m_animator.SetFloat("MoveSpeed", vel.magnitude * 100);
+            
+            
+
+            //Debug.Log(vel.magnitude * 100);
 
             /* ..  ..     .. */
             //m_animator.SetBool("isRoll", false);
