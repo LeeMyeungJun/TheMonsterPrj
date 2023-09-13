@@ -21,14 +21,19 @@ public class cshHitMonster : MonoBehaviour
         Debug.Log("Ãæµ¹");
         //if other == monster 
         //other.takeondamage(waeapon.damage)
+        if (other.gameObject.tag == "Monster")
+        {
+            weaponCollider.enabled = true;
+            Debug.Log("¸ó½ºÅÍ");
 
+        }
     }
 
-    private void OnCollider()
-    {
-        Debug.Log("ÄÑÁü");
-        weaponCollider.enabled = true;
-    }
+    //private void OnCollider()
+    //{
+      //  Debug.Log("ÄÑÁü");
+      //  weaponCollider.enabled = true;
+    //}
     private void OffCollider()
     {
         Debug.Log("²¨Áü");
