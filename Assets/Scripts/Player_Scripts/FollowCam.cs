@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-    public Transform targetTr;
-    private Transform camTr;
+    [SerializeField] 
+    Transform target;
 
-    [Range(2.0f, 20.0f)]
-    public float distance = 5.0f;
+    [SerializeField] 
+    float rotSpeed = 2f;
+    [SerializeField] 
+    float dist = 5;
 
-    [Range(0.0f, 10.0f)]
-    public float height = 2.0f;
+    [SerializeField] 
+    float minAngle = -20;
+    [SerializeField]
+    float maxAngle = 45;
 
-    public float damping = 10.0f;
+    [SerializeField]
+    Vector2 offset;
 
-    // Start is called before the first frame update
-    void Start()
+    float rotX;
+    float rotY;
+
+    private void Start()
     {
-        camTr = GetComponent<Transform>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
-
-    void LateUpdate()
+    private void Update()
     {
-        Vector3 pos = targetTr.position + (-targetTr.forward * distance) + (Vector3.up * height);
+        rotX += Input.GetAxis("Mouse Y") * -1 * rotSpeed;
+        rotX = Mathf.Clamp(rotX, minAngle, maxAngle);
 
-        camTr.position = Vector3.Slerp(camTr.position,pos,Time.deltaTime*damping);
+        rotY += Input.GetAxis("Mouse X") * rotSpeed;
 
-        camTr.LookAt(targetTr.position);
+        var targetRotation = Quaternion.Euler(rotX, rotY, 0);
+        var focusPosition = target.position + new Vector3(offset.x, offset.y);
+
+        transform.position = focusPosition - targetRotation * new Vector3(0, 0, dist);
+        transform.rotation = targetRotation;
     }
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }

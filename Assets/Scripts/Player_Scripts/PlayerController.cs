@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         m_animator.SetBool("Grounded", m_isGrounded);
 
-        LookAround();
+        //LookAround();
         Move();
         JumpingAndLanding();
         Rolling();

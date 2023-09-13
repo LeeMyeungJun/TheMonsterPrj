@@ -495,38 +495,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13a435eaa44d9b48bb395d7db7caa5d, type: 3}
---- !u!4 &1154550612701268102
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154550612701268103}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2869997, y: 6.9164824, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1154550613391351961}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1154550612701268103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1154550612701268102}
-  m_Layer: 0
-  m_Name: Camera Arm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1154550613391351956
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,10 +526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d26a078e9fb2644bb18c934208170f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTr: {fileID: 1427527540}
-  distance: 5
-  height: 2
-  damping: 1
+  target: {fileID: 1427527540}
+  rotSpeed: 2
+  dist: 5
+  minAngle: -10
+  maxAngle: 45
+  offset: {x: 0, y: 1}
 --- !u!4 &1154550613391351961
 Transform:
   m_ObjectHideFlags: 0
@@ -570,12 +540,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154550613391351956}
   m_LocalRotation: {x: 0.11064537, y: -0, z: -0, w: 0.99386}
-  m_LocalPosition: {x: 0.2, y: -0.36, z: -1.89}
+  m_LocalPosition: {x: 0.4869997, y: 6.5564823, z: 5.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1154550612701268102}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 12.705, y: 0, z: 0}
 --- !u!20 &1154550613391351962
 Camera:
@@ -641,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742535427521543662, guid: 893a3b074e2c7fd409ff26a27c3dfce1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6742535427521543662, guid: 893a3b074e2c7fd409ff26a27c3dfce1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,7 +677,7 @@ PrefabInstance:
     - target: {fileID: 8134481366965276690, guid: fe537232bf769c04790459344f7482e5, type: 3}
       propertyPath: cameraArm
       value: 
-      objectReference: {fileID: 1154550612701268102}
+      objectReference: {fileID: 0}
     - target: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
       propertyPath: m_Name
       value: MalePlayer
