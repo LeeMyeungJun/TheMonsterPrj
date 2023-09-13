@@ -9,16 +9,25 @@ using BackEnd;
 
 public class ViewRanking : MonoBehaviour
 {
+    public TMP_Text myClearTime;
+    
     public TMP_Text[] topNames;
     public TMP_Text[] topClearTimes;
 
     public int gap = 2;
     public RectTransform content;  // [ myRank-gap , myRank+gap ]
 
-    private void OnEnable()
+    private void Start()
     {
+        ViewMyClearTime();
         UpdateRanking();
         ViewMyGapRanking();
+    }
+
+    void ViewMyClearTime()
+    {
+        string c = PlayerPrefs.GetString("clearTime");
+        myClearTime.text = "Clear Time : " + c;
     }
 
     void UpdateRanking()

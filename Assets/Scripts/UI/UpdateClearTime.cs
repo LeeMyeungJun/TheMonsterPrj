@@ -13,13 +13,16 @@ public class UpdateClearTime : MonoBehaviour
 
     private void OnEnable()
     {
-        txtClearTime.text = "Clear : " + txtTimer.text;
+        PlayerPrefs.SetString("clearTime", txtTimer.text);
+        Debug.Log("txtTimer.text : " + txtTimer.text);
         UpdateData();
+        LoadingSceneController.LoadScene("ClearScene");
     }
     // 데이터 삽입 함수
     public void UpdateData()
     {
         UIManager.Instance.TimerStop();
+
 
         t = txtTimer.text.Split(":");
         clearTime = Convert.ToInt32(t[0]) * 60 + Convert.ToInt32(t[1]);
@@ -37,5 +40,6 @@ public class UpdateClearTime : MonoBehaviour
 
         // 랭킹 업데이트
         BackendRank.Instance.RankInsert(clearTime);
+
     }
 }
