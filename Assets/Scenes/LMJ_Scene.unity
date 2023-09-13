@@ -643,6 +643,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1541638992, guid: fe537232bf769c04790459344f7482e5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541638992, guid: fe537232bf769c04790459344f7482e5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541638992, guid: fe537232bf769c04790459344f7482e5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
       propertyPath: m_Name
       value: MalePlayer

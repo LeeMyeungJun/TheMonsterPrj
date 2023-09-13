@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //public TrailRenderer trail;
+
+
     [SerializeField]
     private Transform characterBody;
     [SerializeField]
     private Transform cameraArm; //카메라 이동관리
+    [SerializeField]
+    private TrailRenderer trail;
 
     Animator m_animator;
     private Rigidbody m_rigidBody;
@@ -33,17 +38,18 @@ public class PlayerController : MonoBehaviour
         m_rigidBody = GetComponent<Rigidbody>();
         //마우스잠그기
         Cursor.lockState = CursorLockMode.Locked;
+        trail.GetComponent<TrailRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //LookAround();
         JumpingAndLanding();
         Move();
         Rolling();
         Attacking();
-       
     }
 
     //임시
@@ -144,6 +150,30 @@ public class PlayerController : MonoBehaviour
             m_animator.SetBool("isRoll", false);
         }
     }
+    private void Attacking()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            m_animator.SetBool("isAttack", true);
+        }
+        else
+        {
+            m_animator.SetBool("isAttack", false);
+        }
+    }
+    
+    IEnumerator FadeOut()
+    {
+        Color c = trail.material.color;
+        for (int i =10; i>=0; i--)
+        {
+            float f = i / 10.0f;
+            c.a = f;
+            trail.material.color = c;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+    }
 
     private void velocityRoll()
     {
@@ -158,17 +188,14 @@ public class PlayerController : MonoBehaviour
     {
         isMove = false;
     }
-
-    private void Attacking()
+    private void OnFlash()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            m_animator.SetBool("isAttack", true);
-        }
-        else
-        {
-            m_animator.SetBool("isAttack", false);
-        }
+        trail.enabled = true;
+    }
+    private void OffFlash()
+    {
+        StartCoroutine(FadeOut());
+        //trail.enabled = false;
     }
 
 

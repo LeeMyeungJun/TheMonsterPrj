@@ -72,6 +72,18 @@ public class PlayerRigidbody : MonoBehaviour
             m_animator.SetTrigger("Jump");
         }
     }
+    
+    private void Attacking()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            m_animator.SetBool("isAttack", true);
+        }
+        else
+        {
+            m_animator.SetBool("isAttack", false);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         ContactPoint[] contactPoints = collision.contacts;

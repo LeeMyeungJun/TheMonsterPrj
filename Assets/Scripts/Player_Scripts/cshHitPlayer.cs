@@ -22,7 +22,7 @@ public class cshHitPlayer : LivingEntity
     }
 
     public override void OnTakeDamage(float _damage)
-    {
+    { 
         hp -= _damage;
         if (hp <= 0)
         {
