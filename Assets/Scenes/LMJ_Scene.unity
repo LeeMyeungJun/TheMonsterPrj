@@ -184,11 +184,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be2ae1bed89d0b43a0eab485940987a, type: 3}
---- !u!1 &636647237 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
-  m_PrefabInstance: {fileID: 8092603302825253149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &639445001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4991348040273557305, guid: e13a435eaa44d9b48bb395d7db7caa5d, type: 3}
@@ -220,11 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 639445006}
---- !u!65 &797092796 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 8134481365463279421, guid: fe537232bf769c04790459344f7482e5, type: 3}
-  m_PrefabInstance: {fileID: 8092603302825253149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1022300511
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,19 +407,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8138605143263188936, guid: fe537232bf769c04790459344f7482e5, type: 3}
   m_PrefabInstance: {fileID: 8092603302825253149}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1427527552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636647237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6042221a7f4d4f54cb328d288aab25fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 797092796}
 --- !u!1001 &2008353068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,33 +639,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8134481365463279421, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134481365463279421, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134481366965276678, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134481366965276690, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: cameraArm
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
       propertyPath: m_Name
       value: MalePlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134928859240567764, guid: fe537232bf769c04790459344f7482e5, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8138605143263188936, guid: fe537232bf769c04790459344f7482e5, type: 3}
       propertyPath: m_RootOrder
