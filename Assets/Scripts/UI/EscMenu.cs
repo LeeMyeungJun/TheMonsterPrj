@@ -8,7 +8,6 @@ public class EscMenu : MonoBehaviour
     {
         GameManager.Instance.isEscMenuOn = !GameManager.Instance.isEscMenuOn;
         UIManager.Instance.EscPressed();
-        Debug.Log("GetKeyDown(KeyCode.Escape)");
         Debug.Log("게임 재개");
     }
 
@@ -23,6 +22,10 @@ public class EscMenu : MonoBehaviour
     public void ClickExit()
     {
         Debug.Log("게임 종료");
-        Application.Quit();  // 게임 종료 (에디터 상 실행이기 때문에 종료 눌러도 변화 X)
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

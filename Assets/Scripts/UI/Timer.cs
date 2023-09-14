@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
         }
         catch (Exception e)
         {
+            Debug.Log(e.Message);
         }
         
     }
@@ -24,6 +25,7 @@ public class Timer : MonoBehaviour
         }
         catch (Exception e) 
         {
+            Debug.Log(e.Message);
         }
     }
 }

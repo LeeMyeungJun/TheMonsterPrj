@@ -35,14 +35,8 @@ public class ViewRanking : MonoBehaviour
         BackendRank.Instance.RankGet(out var bro); // ·©Å· BackendReturnObject ¹Þ¾Æ¿È
         for(int idx = 0; idx < 3; idx++)
         {
-            //StringBuilder info = new StringBuilder();
-            //info.Append(bro.FlattenRows()[idx]["nickname"].ToString().PadRight(20));
             topNames[idx].text = bro.FlattenRows()[idx]["nickname"].ToString();
             topClearTimes[idx].text = string.Format("{0:00}:{1:00}", (int)bro.FlattenRows()[idx]["score"] / 60, (int)bro.FlattenRows()[idx]["score"] % 60);
-            //info.Append(bro.FlattenRows()[idx]["score"].ToString());
-            //info.Append(string.Format("{0:00}:{1:00}", (int)bro.FlattenRows()[idx]["score"] / 60, (int)bro.FlattenRows()[idx]["score"] % 60));
-            //Debug.Log(info);
-            //topRanks[idx].text += info.ToString();
         }
     }
     
@@ -56,14 +50,13 @@ public class ViewRanking : MonoBehaviour
         foreach (LitJson.JsonData jsonData in bro.FlattenRows())
         {
             StringBuilder info = new StringBuilder();
-            //if (idx == 2)
             if ( Backend.UserNickName== jsonData["nickname"].ToString())
                 info.Append("<color=#ff0000>");
 
             info.Append(jsonData["rank"].ToString().PadRight(20));
             info.Append(jsonData["nickname"].ToString().PadRight(20));
             info.Append(string.Format("{0:00}:{1:00}", (int)jsonData["score"]/60, (int)jsonData["score"]%60));
-            //if (idx == 2)
+
             if (Backend.UserNickName == jsonData["nickname"].ToString())
                 info.Append("<color=#ff0000>");
             content.GetChild(idx).GetComponent<TMP_Text>().text = info.ToString();
